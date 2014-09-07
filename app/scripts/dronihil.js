@@ -1,27 +1,28 @@
-var dronihil = fluid.registerNamespace("dronihil");
+var fluid, flock;
+var dronihil = fluid.registerNamespace('dronihil');
 
 (function() { 
-  "use strict";
+  'use strict';
 
   dronihil.play = function() { 
     dronihil.s1 = flock.synth(
     {
       synthDef: {
-        id: "carrier",
-        ugen: "flock.ugen.sin",
+        id: 'carrier',
+        ugen: 'flock.ugen.sin',
         freq: {
-          id: "fcarrier",
-          ugen: "flock.ugen.sinOsc",
+          id: 'fcarrier',
+          ugen: 'flock.ugen.sinOsc',
           freq: 0.25,
           add: 95,
           mul: 32
         },
         mul: {
-          id: "wobble",
-          ugen: "flock.ugen.sinOsc",
+          id: 'wobble',
+          ugen: 'flock.ugen.sinOsc',
           freq: {
-            id: "wwobble",
-            ugen: "flock.ugen.sinOsc",
+            id: 'wwobble',
+            ugen: 'flock.ugen.sinOsc',
             freq: 0.01,
             add: 1.8,
             mul: 1.7
@@ -35,21 +36,21 @@ var dronihil = fluid.registerNamespace("dronihil");
     dronihil.s2 = flock.synth(
     {
       synthDef: {
-        id: "carrier",
-        ugen: "flock.ugen.sin",
+        id: 'carrier',
+        ugen: 'flock.ugen.sin',
         freq: {
-          id: "fcarrier",
-          ugen: "flock.ugen.sinOsc",
+          id: 'fcarrier',
+          ugen: 'flock.ugen.sinOsc',
           freq: 0.25,
           add: 110,
           mul: 35
         },
         mul: {
-          id: "wobble",
-          ugen: "flock.ugen.sinOsc",
+          id: 'wobble',
+          ugen: 'flock.ugen.sinOsc',
           freq: {
-            id: "wwobble",
-            ugen: "flock.ugen.sinOsc",
+            id: 'wwobble',
+            ugen: 'flock.ugen.sinOsc',
             freq: 0.06,
             add: 2.5,
             mul: 1.5
@@ -63,14 +64,14 @@ var dronihil = fluid.registerNamespace("dronihil");
     dronihil.s3 = flock.synth(
     {
       synthDef: {
-        id: "carrier",
-        ugen: "flock.ugen.dust",
+        id: 'carrier',
+        ugen: 'flock.ugen.dust',
         density: {
-          id: "dcarrier",
-          ugen: "flock.ugen.sinOsc",
+          id: 'dcarrier',
+          ugen: 'flock.ugen.sinOsc',
           freq: {
-            id: "fcarrier",
-            ugen: "flock.ugen.sinOsc",
+            id: 'fcarrier',
+            ugen: 'flock.ugen.sinOsc',
             freq: 0.25,
             add: 1.0,
             mul: 0.5
@@ -79,11 +80,11 @@ var dronihil = fluid.registerNamespace("dronihil");
           mul: 100
         },
         mul: {
-          id: "wobble",
-          ugen: "flock.ugen.sinOsc",
+          id: 'wobble',
+          ugen: 'flock.ugen.sinOsc',
           freq: {
-            id: "wwobble",
-            ugen: "flock.ugen.sinOsc",
+            id: 'wwobble',
+            ugen: 'flock.ugen.sinOsc',
             freq: 0.06,
             add: 2.5,
             mul: 1.5
@@ -97,6 +98,6 @@ var dronihil = fluid.registerNamespace("dronihil");
     // some kind of user input action, such a button click or touch handler.
     // This is because iOS will only play sound if the user initiated it.
     flock.enviro.shared.play();
-  }
+  };
 
 }());
