@@ -46,10 +46,10 @@
 	<input id="knob4" class="knob" data-cursor=false data-fgColor="#222222" data-thickness=.3 data-displayInput="false"  data-min="0", data-max="100"/>
         </div>
         <div class="col-lg-6">
-	<input id="knob5" class="knob" data-cursor=false data-fgColor="#222222" data-thickness=.3 data-displayInput="false" data-min="400" data-max="3400"/>
+	<input id="knob5" class="knob" data-cursor=false data-fgColor="#222222" data-thickness=.3 data-displayInput="false" data-min="400" data-max="34000"/>
         </div>
         <div class="col-lg-6">
-	<input id="knob6" class="knob" data-cursor=false data-fgColor="#222222" data-thickness=.3 data-displayInput="false" data-min="0" data-max="70"/>
+	<input id="knob6" class="knob" data-cursor=false data-fgColor="#222222" data-thickness=.3 data-displayInput="false" data-min="90" data-max="400"/>
         </div>
       </div>
     </div>
@@ -79,8 +79,8 @@
         $("#knob2").knob({'change': function(v) { dronihil.s1.set("wwobble.freq", v/100.0);}});
         $("#knob3").knob({'change': function(v) { dronihil.s2.set("fcarrier.freq", Math.sqrt(v));}});
         $("#knob4").knob({'change': function(v) { dronihil.s2.set("wwobble.freq", v/100.0); }});
-        $("#knob5").knob({'change': function(v) { dronihil.s3.set("fcarrier.freq", Math.sqrt(v)); }});
-        $("#knob6").knob({'change': function(v) { dronihil.s3.set("wwobble.freq", v/10.0); }});
+        $("#knob5").knob({'change': function(v) { dronihil.s3.set("fcarrier.mul", Math.sqrt(v)); }});
+        $("#knob6").knob({'change': function(v) { dronihil.s3.set("wwobble.freq", v); }});
       } );
     }());
 
