@@ -1,6 +1,17 @@
 var fluid, flock;
 var dronihil = fluid.registerNamespace('dronihil');
 
+function xinspect(o,i){
+    if(typeof i=='undefined')i='';
+    if(i.length>50)return '[MAX ITERATIONS]';
+    var r=[];
+    for(var p in o){
+        var t=typeof o[p];
+        r.push(i+'"'+p+'" ('+t+') => '+(t=='object' ? 'object:'+xinspect(o[p],i+'  ') : o[p]+''));
+    }
+    return r.join(i+'\n');
+}
+
 (function() { 
   'use strict';
 
@@ -9,12 +20,12 @@ var dronihil = fluid.registerNamespace('dronihil');
     {
       synthDef: {
         id: 'carrier',
-        ugen: 'flock.ugen.sin',
+        ugen: 'flock.ugen.triOsc',
         freq: {
           id: 'fcarrier',
           ugen: 'flock.ugen.sinOsc',
           freq: 0.25,
-          add: 95,
+          add: 150,
           mul: 32
         },
         mul: {
@@ -42,7 +53,7 @@ var dronihil = fluid.registerNamespace('dronihil');
           id: 'fcarrier',
           ugen: 'flock.ugen.sinOsc',
           freq: 0.25,
-          add: 110,
+          add: 210,
           mul: 35
         },
         mul: {
@@ -105,5 +116,5 @@ var dronihil = fluid.registerNamespace('dronihil');
     // This is because iOS will only play sound if the user initiated it.
     flock.enviro.shared.play();
   };
-
 }());
+

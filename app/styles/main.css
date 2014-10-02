@@ -9,6 +9,12 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -94,5 +100,9 @@ body {
   background-color: rgba(86,61,124,.15);
   border: 1px solid #ddd;
   border: 1px solid rgba(86,61,124,.2);
-  height: 96px;
+  height: 140px;
+}
+
+.btnactive {
+  border: 3px solid black;
 }
