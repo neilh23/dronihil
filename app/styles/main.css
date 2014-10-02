@@ -87,3 +87,12 @@ body {
     border-bottom: 0;
   }
 }
+
+.drnbt {
+  padding: 0px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+  height: 96px;
+}
