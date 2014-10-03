@@ -4,6 +4,7 @@
   "dependencies": {
     "flocking": "git://github.com/colinbdclark/Flocking.git",
     "bootstrap": "~3.2.0",
-    "jquery-knob": "~1.2.11"
+    "jquery-knob": "~1.2.11",
+    "jquery-color": "~2.1.2"
   }
 }

@@ -94,9 +94,24 @@
         var xrange = xmax - xmin;
         var yrange = ymax - ymin;
 
+        var diam = sqrt((maxw*maxw + maxh*maxh)/4.0);
+        log.console("diameter: " + diam);
+
         $("body").mousemove(function(event) {
           var xval = xmin + (maxw/(maxw - event.pageX))*xrange;
           var yval = ymin + (maxh/event.pageY)*yrange;
+
+          // convert to vector from centre
+          var xpos = xval - (maxw/2);
+          var ypos = yval - (maxy/2);
+
+          // distance from origin (center) 0 - 1
+          var d = Math.sqrt(xpos**2 + ypos**2)/diam;
+
+          // angle - between -PI/2 and PI/2
+          var a = Math.atan(ypos/xpos);
+
+          // FIXME: use d as luminence, a as hue
 
           // console.log(xname + " - value: " + xval + ", " + yname + " - value: " + yval);
           target.set(xname, xval);
@@ -140,6 +155,8 @@
         <script src="bower_components/bootstrap/js/collapse.js"></script>
         <script src="bower_components/bootstrap/js/tab.js"></script>
         <!-- endbuild -->
+
+        <script src="bower_components/jquery-color/jquery.color.js "></script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
