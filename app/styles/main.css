@@ -95,12 +95,15 @@ body {
 }
 
 .drnbt {
+  margin: 2px;
   padding: 0px;
   background-color: #eee;
   background-color: rgba(86,61,124,.15);
   border: 1px solid #ddd;
   border: 1px solid rgba(86,61,124,.2);
   height: 140px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 1px grey;
 }
 
 .btnactive {
