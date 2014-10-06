@@ -73,6 +73,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script src="bower_components/jquery-color/jquery.color.js "></script>
     <script src="scripts/dronihil.js"></script>
     <script>
     var fluid = fluid || require("infusion"),
@@ -85,57 +86,13 @@
       // fluid.setLogging(true);
 
       var $ = fluid.registerNamespace("jQuery");
-      function bclick(component, target, xname, xmin, xmax, yname, ymin, ymax) {
-        $(".drnbt").removeClass('btnactive');
-        component.addClass('btnactive');
-        $("body").mouseup(function(event) { $("body").off("mousemove"); component.removeClass("btnactive") });
-        var maxw = $("body").width();
-        var maxh = $("body").height();
-        var xrange = xmax - xmin;
-        var yrange = ymax - ymin;
-
-        var diam = Math.sqrt((maxw*maxw + maxh*maxh)/4.0);
-        console.log("diameter: " + diam);
-
-        $("body").mousemove(function(event) {
-          var xval = xmin + (maxw/(maxw - event.pageX))*xrange;
-          var yval = ymin + (maxh/event.pageY)*yrange;
-
-          // convert to vector from centre
-          var xpos = event.pageX - (maxw/2);
-          var ypos = event.pageY - (maxh/2);
-
-          // 1 - distance from origin (center) 0 - 1
-          var d = 1 - Math.sqrt(xpos*xpos + ypos*ypos)/diam;
-
-          // angle - between -PI/2 and PI/2 - abs causes our values to wrap around for smooth colours
-          // var a = Math.abs((Math.atan(ypos/xpos)/Math.PI)*2);
-          var a = 0.5 + ((Math.atan(ypos/xpos)/Math.PI));
-
-          component.css("background", jQuery.Color({ hue: (a*359), saturation: (0.6 + d/3), lightness: 0.2 + d*0.7}));
-
-          // console.log("X: " +  event.pageX + "(" + xpos + ")  , Y: " + event.pageY + " ( " + ypos + ") diam = " + diam + " d = " + d + " a = " + a);
-          // console.log(xname + " - value: " + xval + ", " + yname + " - value: " + yval);
-          target.set(xname, xval);
-          target.set(yname, yval);
-        });
-      }
       $(function() {
-        //$("#knob1").knob({ 'width': 90, 'height': 90, 'change': function(v) { dronihil.s1.set("fcarrier.freq", Math.sqrt(v)); }});
-        //$("#knob2").knob({ 'width': 90, 'height': 90, 'change': function(v) { dronihil.s1.set("wwobble.freq", v/100.0);}});
-       // $("#knob3").knob({ 'width': 90, 'height': 90, 'change': function(v) { dronihil.s2.set("fcarrier.freq", Math.sqrt(v));}});
-       // $("#knob4").knob({ 'width': 90, 'height': 90, 'change': function(v) { dronihil.s2.set("wwobble.freq", v/100.0); }});
-       // $("#knob5").knob({ 'width': 90, 'height': 90, 'change': function(v) { dronihil.s3.set("fcarrier.mul", Math.sqrt(v)); }});
-       // $("#knob6").knob({ 'width': 90, 'height': 90, 'change': function(v) { dronihil.s3.set("wwobble.freq", v); }});
-
-        $("#bt1").mousedown( function() { bclick($("#bt1"), dronihil.s1, "fcarrier.mul", 0.1, 15, "fcarrier.freq", 0.5, 20); });
-        $("#bt2").mousedown( function() { bclick($("#bt2"), dronihil.s1, "wwobble.mul", 5, 25, "wwobble.freq", 0.001, 4); });
-        $("#bt3").mousedown( function() { bclick($("#bt3"), dronihil.s2, "fcarrier.mul", 0.1, 12, "fcarrier.freq", 0.4, 12); });
-        $("#bt4").mousedown( function() { bclick($("#bt4"), dronihil.s2, "wwobble.mul", 2, 15, "wwobble.freq", 0.001, 4); });
-        $("#bt5").mousedown( function() { bclick($("#bt5"), dronihil.s3, "fcarrier.mul", 0.1, 10, "fcarrier.freq", 0.2, 10); });
-        $("#bt6").mousedown( function() { bclick($("#bt6"), dronihil.s3, "wwobble.mul", 1, 10, "wwobble.freq", 0.001, 1); });
-        
-
+        dronihil.addAuto({ component: $("#bt1"), target: dronihil.s1, xname: "fcarrier.mul", xmin: 0.1, xmax: 15, yname: "fcarrier.freq", ymin: 0.5, ymax: 500});
+        dronihil.addAuto({ component: $("#bt2"), target: dronihil.s1, xname: "wwobble.mul", xmin: 5, xmax: 405, yname: "wwobble.freq", ymin: 0.001, ymax: 4});
+        dronihil.addAuto({ component: $("#bt3"), target: dronihil.s2, xname: "fcarrier.mul", xmin: 0.1, xmax: 12, yname: "fcarrier.freq", ymin: 0.4, ymax: 450});
+        dronihil.addAuto({ component: $("#bt4"), target: dronihil.s2, xname: "wwobble.mul", xmin: 2, xmax: 240, yname: "wwobble.freq", ymin: 0.001, ymax: 4});
+        dronihil.addAuto({ component: $("#bt5"), target: dronihil.s3, xname: "fcarrier.mul", xmin: 0.1, xmax: 10, yname: "fcarrier.freq", ymin: 0.2, ymax: 204});
+        dronihil.addAuto({ component: $("#bt6"), target: dronihil.s3, xname: "wwobble.mul", xmin: 1, xmax: 120, yname: "wwobble.freq", ymin: 0.001, ymax: 1});
       } );
     }());
 
@@ -158,7 +115,6 @@
         <script src="bower_components/bootstrap/js/tab.js"></script>
         <!-- endbuild -->
 
-        <script src="bower_components/jquery-color/jquery.color.js "></script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
