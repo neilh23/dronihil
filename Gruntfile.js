@@ -265,15 +265,15 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/scripts/scripts.js': [
-    //         '<%= config.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
+    uglify: {
+      dist: {
+         files: {
+          '<%= config.dist %>/scripts/dronihil.js': [
+             '<%= config.dist %>/scripts/dronihil.js'
+           ]
+         }
+       }
+    },
     // concat: {
     //   dist: {}
     // },

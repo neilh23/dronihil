@@ -55,7 +55,7 @@ function bclick(component) {
 
   $('body').on ("mousemove touchmove", function(event) {
     var x, y;
-    if (event.originalEvent !== undefined) {
+    if (event.originalEvent.touches !== undefined) {
       x = event.originalEvent.touches[0].pageX;
       y = event.originalEvent.touches[0].pageY;
     } else {
