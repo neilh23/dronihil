@@ -1,0 +1,23 @@
+<!DOCTYPE html> <html class=no-js> <head> <meta charset=utf-8> <title>dronihil</title> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/6df2b309.favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=styles/9c307a9d.vendor.css> <link rel=stylesheet href=styles/1c934d08.main.css>  <body> <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <div class=container> <div class=row> <div id=bt1 class="col-xs-6 drnbt"></div> <div id=bt2 class="col-xs-6 drnbt"></div> </div> <div class=row> <div id=bt3 class="col-xs-6 drnbt"></div> <div id=bt4 class="col-xs-6 drnbt"></div> </div> <div class=row> <div id=bt5 class="col-xs-6 drnbt"></div> <div id=bt6 class="col-xs-6 drnbt"></div> </div>  <script src=scripts/5aa601a9.vendor.js></script> <script src=bower_components/jquery-color/jquery.color.js></script> <script src=scripts/dronihil.js></script> <script>var fluid = fluid || require("infusion"),
+    flock = fluid.registerNamespace("flock");
+
+    (function() {
+      "use strict";
+
+      flock.init();
+      // fluid.setLogging(true);
+
+      var $ = fluid.registerNamespace("jQuery");
+      $(function() {
+        dronihil.addAuto({ component: $("#bt1"), target: dronihil.s1, xname: "fcarrier.mul", xmin: 0.1, xmax: 15, yname: "fcarrier.freq", ymin: 0.5, ymax: 500});
+        dronihil.addAuto({ component: $("#bt2"), target: dronihil.s1, xname: "wwobble.mul", xmin: 5, xmax: 405, yname: "wwobble.freq", ymin: 0.001, ymax: 4});
+        dronihil.addAuto({ component: $("#bt3"), target: dronihil.s2, xname: "fcarrier.mul", xmin: 0.1, xmax: 12, yname: "fcarrier.freq", ymin: 0.4, ymax: 450});
+        dronihil.addAuto({ component: $("#bt4"), target: dronihil.s2, xname: "wwobble.mul", xmin: 2, xmax: 240, yname: "wwobble.freq", ymin: 0.001, ymax: 4});
+        dronihil.addAuto({ component: $("#bt5"), target: dronihil.s3, xname: "fcarrier.mul", xmin: 0.1, xmax: 10, yname: "fcarrier.freq", ymin: 0.2, ymax: 204});
+        dronihil.addAuto({ component: $("#bt6"), target: dronihil.s3, xname: "wwobble.mul", xmin: 1, xmax: 120, yname: "wwobble.freq", ymin: 0.001, ymax: 1});
+      } );
+    }());
+
+    dronihil.play();</script> <script src=scripts/cb7562c6.plugins.js></script> <script src=scripts/b6c3df09.main.js></script>  
